@@ -1,0 +1,125 @@
+{
+  "project_name": "PlastiLu Ind. Embalagens - Bio Link",
+  "design_philosophy": {
+    "theme": "Industrial Luxury",
+    "emotion": "Authority, Precision, Modernity, Sophistication",
+    "core_concept": "Dark mode exclusivity with electric blue energy"
+  },
+  "typography": {
+    "font_family_heading": "Outfit, sans-serif",
+    "font_family_body": "Manrope, sans-serif",
+    "scale": {
+      "h1": "text-4xl md:text-5xl font-bold tracking-tight",
+      "h2": "text-2xl md:text-3xl font-semibold tracking-tight",
+      "h3": "text-xl font-medium tracking-normal",
+      "body": "text-base leading-relaxed",
+      "caption": "text-sm text-slate-400"
+    }
+  },
+  "colors": {
+    "palette": {
+      "background": {
+        "primary": "#000000",
+        "secondary": "#020617",
+        "gradient_start": "#000000",
+        "gradient_end": "#0B1121"
+      },
+      "text": {
+        "primary": "#F8FAFC",
+        "secondary": "#94A3B8",
+        "accent": "#38BDF8"
+      },
+      "brand": {
+        "primary": "#0EA5E9",
+        "secondary": "#0284C7",
+        "glow": "rgba(14, 165, 233, 0.6)",
+        "metallic": "#E2E8F0"
+      },
+      "status": {
+        "success": "#10B981",
+        "warning": "#F59E0B",
+        "error": "#EF4444"
+      }
+    },
+    "gradients": {
+      "hero_bg": "radial-gradient(circle at center top, #1e293b 0%, #000000 70%)",
+      "button_border": "linear-gradient(90deg, #0EA5E9, #38BDF8)",
+      "text_gradient": "linear-gradient(to right, #F8FAFC, #94A3B8)"
+    }
+  },
+  "visual_enhancers": {
+    "shadows": {
+      "glow_sm": "0 0 10px rgba(14, 165, 233, 0.3)",
+      "glow_md": "0 0 20px rgba(14, 165, 233, 0.5)",
+      "glow_lg": "0 0 30px rgba(14, 165, 233, 0.6)"
+    },
+    "borders": {
+      "glass": "1px solid rgba(255, 255, 255, 0.1)",
+      "active": "1px solid rgba(14, 165, 233, 0.5)"
+    },
+    "radius": {
+      "button": "9999px",
+      "card": "16px"
+    },
+    "textures": {
+      "noise": "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMDAwIi8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz4KPC9zdmc+')",
+      "grid": "linear-gradient(to right, #1e293b 1px, transparent 1px), linear-gradient(to bottom, #1e293b 1px, transparent 1px)"
+    }
+  },
+  "layout_strategy": {
+    "container": "max-w-md mx-auto min-h-screen relative overflow-hidden",
+    "spacing": {
+      "section_gap": "gap-8",
+      "element_gap": "gap-4",
+      "padding_screen": "p-6"
+    }
+  },
+  "components": {
+    "Button": {
+      "name": "IndustrialButton",
+      "path": "/app/frontend/src/components/custom/IndustrialButton.js",
+      "style": "relative group w-full p-[1px] rounded-full overflow-hidden bg-gradient-to-r from-cyan-500/50 via-blue-500/50 to-cyan-500/50 hover:shadow-[0_0_20px_rgba(6,182,212,0.5)] transition-all duration-300",
+      "inner_style": "relative flex items-center justify-center gap-3 bg-slate-950 hover:bg-slate-900 text-white font-medium py-4 px-6 rounded-full transition-all duration-300 backdrop-blur-xl"
+    },
+    "Hero": {
+      "name": "HeroSection",
+      "path": "/app/frontend/src/components/custom/HeroSection.js",
+      "features": ["Animated background lines", "Logo glow", "Typing effect or fade-in text"]
+    },
+    "Card": {
+      "name": "InfoCard",
+      "style": "bg-slate-900/50 border border-slate-800 backdrop-blur-md rounded-2xl p-6 hover:border-cyan-500/30 transition-colors"
+    }
+  },
+  "animations": {
+    "entrance": "animate-in slide-in-from-bottom-8 fade-in duration-700",
+    "hover": "transform hover:scale-[1.02] transition-transform duration-200",
+    "shine": "animate-shine"
+  },
+  "assets": {
+    "logo_url": "https://customer-assets.emergentagent.com/job_f2174556-e75a-4d9f-b9a1-79033e0c94cb/artifacts/j5w85uic_logo_plastiti-removebg-preview.png",
+    "icons": {
+      "whatsapp": "FaWhatsapp",
+      "map": "FaMapMarkerAlt",
+      "catalog": "FaBookOpen",
+      "website": "FaGlobe",
+      "star": "FaStar"
+    }
+  },
+  "instructions_to_main_agent": [
+    "1. INSTALLATION: Run `yarn add framer-motion lucide-react react-icons clsx tailwind-merge` first.",
+    "2. SETUP: Update `tailwind.config.js` to include the custom colors and animations defined in this JSON. Specifically add the 'shine' keyframe.",
+    "3. FONTS: Import 'Outfit' and 'Manrope' from Google Fonts in `index.css`.",
+    "4. STRUCTURE: Create a `Layout.js` that handles the max-width and background texture.",
+    "5. COMPONENT - HERO: Build the Hero with the logo and animated background lines. The lines should move slowly to create a 'living' industrial feel.",
+    "6. COMPONENT - BUTTONS: Create the `IndustrialButton` component. It must have the gradient border effect. Use a wrapper div with the gradient padding, and an inner div for the dark background.",
+    "7. COMPONENT - DIFFERENTIAL: Use a grid layout for the 'Qualidade', 'Agilidade' etc. items. Use icons for each.",
+    "8. ACCESSIBILITY: Ensure all text has sufficient contrast against the black background. Use `text-slate-200` for body text, not `text-gray-500`.",
+    "9. DATA-TESTID: Add `data-testid` to all buttons and links."
+  ],
+  "universal_guidelines": {
+    "do_not_use": ["gradients on text unless large heading", "generic gray backgrounds", "default blue links"],
+    "always_use": ["backdrop-blur", "subtle borders", "high contrast text"],
+    "motion_preference": "smooth, damped spring animations"
+  }
+}
