@@ -18,24 +18,26 @@ Criar um site exclusivo para link na bio do Instagram da empresa PlastiLu Ind. E
 
 ## Implementado (Janeiro 2026)
 
-### Hero Section
-- ✅ Logo centralizada com efeito glow
-- ✅ Linhas animadas de fundo (4 linhas com movimento)
-- ✅ Texto premium "Embalagens plásticas em geral, lisas e impressas."
-- ✅ Linhas brilhosas animadas acima e abaixo do texto
+### Hero Section - V2 Enhanced
+- ✅ Banner flutuante com embalagens (substituiu logo)
+- ✅ Animação de flutuação suave no banner
+- ✅ Degradê azul intensificado no fundo
+- ✅ Apenas linhas animadas em movimento (removidas linhas estáticas)
+- ✅ Título com estilo luxo: fonte Playfair Display + gradiente branco/azul
 
 ### Seção Institucional
 - ✅ "Sacos e Filmes em PP e PE • Stretch • Shrink • Bobinas"
 
-### Botões Premium
+### Botões Premium (6 botões)
 - ✅ Fale com a gente (WhatsApp) - `+55 62 98523-0431`
 - ✅ Como chegar (Google Maps)
 - ✅ Catálogo (Google Drive PDF)
 - ✅ Site (plastiluembalagens.com.br)
+- ✅ **Seja um Representante** (WhatsApp - NOVO)
 - ✅ Avalie-nos no Google
 
 ### Seção Diferencial
-- ✅ "De Goiânia para todas as regiões do Brasil."
+- ✅ "De Goiânia para todas as regiões do Brasil." (estilo luxo)
 - ✅ Features: Qualidade • Agilidade • Impressão personalizada • Entrega eficiente
 
 ### Footer
@@ -53,7 +55,7 @@ Criar um site exclusivo para link na bio do Instagram da empresa PlastiLu Ind. E
 
 ## Tech Stack
 - **Frontend**: React 19 + Tailwind CSS + Framer Motion
-- **Fontes**: Google Fonts (Outfit, Manrope)
+- **Fontes**: Google Fonts (Playfair Display, Outfit, Manrope)
 - **Ícones**: React Icons (FontAwesome)
 
 ## Links Configurados
@@ -64,7 +66,8 @@ Criar um site exclusivo para link na bio do Instagram da empresa PlastiLu Ind. E
 | Catálogo | Google Drive PDF |
 | Site | https://plastiluembalagens.com.br/ |
 | Google Review | share.google/TB18y0Fcyw20PATzI |
-| Instagram | @plastiluembalagens |
+| Representante | WhatsApp +55 62 98523-0431 |
+| Instagram | @plastilu.embalagens (atualizado) |
 
 ## Backlog Futuro
 - P1: Analytics de cliques por botão
