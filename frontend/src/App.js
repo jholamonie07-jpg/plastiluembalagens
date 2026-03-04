@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import "@/App.css";
-import { FaWhatsapp, FaMapMarkerAlt, FaBookOpen, FaGlobe, FaStar, FaInstagram } from "react-icons/fa";
+import { FaWhatsapp, FaMapMarkerAlt, FaBookOpen, FaGlobe, FaStar, FaInstagram, FaHandshake } from "react-icons/fa";
 
 // Company Links
 const LINKS = {
@@ -9,11 +9,12 @@ const LINKS = {
   catalog: "https://drive.google.com/file/d/1XyWsjmus6cGWMpr7TkSG3eWVLFWJHZtH/view",
   website: "https://plastiluembalagens.com.br/",
   googleReview: "https://share.google/TB18y0Fcyw20PATzI",
-  instagram: "https://www.instagram.com/plastiluembalagens/"
+  instagram: "https://www.instagram.com/plastilu.embalagens?igsh=MXdreGI0eGR0bHN1",
+  representative: "https://api.whatsapp.com/send/?phone=5562985230431&text=Olá! Gostaria de saber mais sobre ser um representante.&type=phone_number&app_absent=0"
 };
 
-// Logo URL
-const LOGO_URL = "https://customer-assets.emergentagent.com/job_f2174556-e75a-4d9f-b9a1-79033e0c94cb/artifacts/j5w85uic_logo_plastiti-removebg-preview.png";
+// Banner Image URL
+const BANNER_IMAGE = "https://customer-assets.emergentagent.com/job_plastilu-oficial/artifacts/31snfrpo_01-1-1536x1024-removebg-preview.png";
 
 // Animation Variants
 const containerVariants = {
@@ -36,8 +37,18 @@ const itemVariants = {
   }
 };
 
+// Float animation for the banner image
+const floatAnimation = {
+  y: [0, -15, 0],
+  transition: {
+    duration: 4,
+    repeat: Infinity,
+    ease: "easeInOut"
+  }
+};
+
 // Premium Button Component
-const PremiumButton = ({ href, icon: Icon, title, subtitle, testId, delay = 0 }) => (
+const PremiumButton = ({ href, icon: Icon, title, subtitle, testId }) => (
   <motion.a
     href={href}
     target="_blank"
@@ -58,48 +69,48 @@ const PremiumButton = ({ href, icon: Icon, title, subtitle, testId, delay = 0 })
   </motion.a>
 );
 
-// Animated Background Lines
-const AnimatedLines = () => (
-  <div className="animated-bg-lines">
-    <div className="bg-line bg-line-1" />
-    <div className="bg-line bg-line-2" />
-    <div className="bg-line bg-line-3" />
-    <div className="bg-line bg-line-4" />
+// Animated Lines - Only moving lines, closer to title
+const AnimatedTitleLines = () => (
+  <div className="animated-title-lines">
+    <div className="title-line title-line-top" />
+    <div className="title-line title-line-bottom" />
   </div>
 );
 
-// Hero Section
+// Hero Section with Banner Image
 const HeroSection = () => (
-  <section className="hero-section bg-gradient-premium" data-testid="hero-section">
-    <AnimatedLines />
+  <section className="hero-section-enhanced" data-testid="hero-section">
+    {/* Enhanced Blue Gradient Background */}
+    <div className="hero-gradient-bg" />
     
-    {/* Logo */}
+    {/* Floating Banner Image */}
     <motion.div
-      className="logo-container mb-6"
-      initial={{ opacity: 0, scale: 0.8 }}
+      className="banner-image-container"
+      initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      transition={{ duration: 1, ease: "easeOut" }}
     >
-      <img
-        src={LOGO_URL}
-        alt="PlastiLu Embalagens"
-        className="logo-glow w-36 h-36 md:w-44 md:h-44 object-contain rounded-full"
-        data-testid="company-logo"
+      <motion.img
+        src={BANNER_IMAGE}
+        alt="Embalagens Plásticas PlastiLu"
+        className="banner-image"
+        animate={floatAnimation}
+        data-testid="banner-image"
       />
     </motion.div>
 
-    {/* Premium Text with Animated Lines */}
+    {/* Premium Title with Luxury Style */}
     <motion.div
-      className="premium-text-wrapper text-center z-10"
+      className="premium-title-wrapper"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.4 }}
+      transition={{ duration: 0.8, delay: 0.5 }}
     >
-      <div className="premium-line premium-line-top" />
-      <h1 className="font-outfit text-xl md:text-2xl font-medium text-slate-100 px-4 py-3">
-        Embalagens plásticas em geral, lisas e impressas.
+      <AnimatedTitleLines />
+      <h1 className="luxury-title" data-testid="main-title">
+        <span className="luxury-text-gradient">Embalagens plásticas</span>
+        <span className="luxury-text-white"> em geral, lisas e impressas.</span>
       </h1>
-      <div className="premium-line premium-line-bottom" />
     </motion.div>
   </section>
 );
@@ -110,7 +121,7 @@ const InstitutionalSection = () => (
     className="text-center py-6 px-4"
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
-    transition={{ duration: 0.6, delay: 0.6 }}
+    transition={{ duration: 0.6, delay: 0.8 }}
     data-testid="institutional-section"
   >
     <p className="text-slate-400 text-sm md:text-base tracking-wide">
@@ -162,6 +173,14 @@ const ButtonsSection = () => (
       />
       
       <PremiumButton
+        href={LINKS.representative}
+        icon={FaHandshake}
+        title="Seja um Representante"
+        subtitle="Faça parte do nosso time"
+        testId="btn-representative"
+      />
+      
+      <PremiumButton
         href={LINKS.googleReview}
         icon={FaStar}
         title="Avalie-nos no Google"
@@ -172,7 +191,7 @@ const ButtonsSection = () => (
   </motion.section>
 );
 
-// Differential Section
+// Differential Section with Luxury Title
 const DifferentialSection = () => (
   <motion.section
     className="py-8 px-4"
@@ -185,14 +204,16 @@ const DifferentialSection = () => (
     <div className="glow-divider" />
     
     <div className="text-center space-y-4 max-w-md mx-auto">
-      <motion.p
-        className="text-slate-100 font-outfit text-lg md:text-xl font-medium"
+      <motion.h2
+        className="luxury-title-secondary"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.2 }}
+        data-testid="differential-title"
       >
-        De Goiânia para todas as regiões do Brasil.
-      </motion.p>
+        <span className="luxury-text-gradient">De Goiânia</span>
+        <span className="luxury-text-white"> para todas as regiões do Brasil.</span>
+      </motion.h2>
       
       <motion.div
         className="flex flex-wrap justify-center gap-x-4 gap-y-2"
@@ -260,7 +281,7 @@ const FooterSection = () => (
 // Main App Component
 function App() {
   return (
-    <div className="min-h-screen bg-black noise-texture" data-testid="app-container">
+    <div className="min-h-screen bg-black" data-testid="app-container">
       <main className="max-w-lg mx-auto">
         <HeroSection />
         <InstitutionalSection />

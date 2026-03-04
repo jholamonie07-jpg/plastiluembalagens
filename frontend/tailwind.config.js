@@ -65,6 +65,7 @@ module.exports = {
       fontFamily: {
         outfit: ['Outfit', 'sans-serif'],
         manrope: ['Manrope', 'sans-serif'],
+        playfair: ['Playfair Display', 'serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
