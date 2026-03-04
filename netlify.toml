@@ -1,3 +1,6 @@
 [build]
   command = "npm run build --prefix Frontend"
   publish = "Frontend/build"
+
+[unstable]
+  build_dir = "Frontend"
