@@ -13,8 +13,9 @@ const LINKS = {
   representative: "https://api.whatsapp.com/send/?phone=5562985230431&text=Olá! Gostaria de saber mais sobre ser um representante.&type=phone_number&app_absent=0"
 };
 
-// Banner Image URL
+// Assets URLs
 const BANNER_IMAGE = "https://customer-assets.emergentagent.com/job_plastilu-oficial/artifacts/31snfrpo_01-1-1536x1024-removebg-preview.png";
+const LOGO_URL = "https://customer-assets.emergentagent.com/job_f2174556-e75a-4d9f-b9a1-79033e0c94cb/artifacts/j5w85uic_logo_plastiti-removebg-preview.png";
 
 // Animation Variants
 const containerVariants = {
@@ -34,16 +35,6 @@ const itemVariants = {
     opacity: 1,
     y: 0,
     transition: { duration: 0.5, ease: "easeOut" }
-  }
-};
-
-// Float animation for the banner image
-const floatAnimation = {
-  y: [0, -15, 0],
-  transition: {
-    duration: 4,
-    repeat: Infinity,
-    ease: "easeInOut"
   }
 };
 
@@ -77,29 +68,37 @@ const AnimatedTitleLines = () => (
   </div>
 );
 
-// Hero Section with Banner Image
+// Hero Section with Background Banner and Centered Logo
 const HeroSection = () => (
   <section className="hero-section-enhanced" data-testid="hero-section">
     {/* Enhanced Blue Gradient Background */}
     <div className="hero-gradient-bg" />
     
-    {/* Floating Banner Image */}
-    <motion.div
-      className="banner-image-container"
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 1, ease: "easeOut" }}
-    >
-      <motion.img
+    {/* Background Banner Image with Low Opacity */}
+    <div className="banner-background">
+      <img
         src={BANNER_IMAGE}
-        alt="Embalagens Plásticas PlastiLu"
-        className="banner-image"
-        animate={floatAnimation}
-        data-testid="banner-image"
+        alt="Embalagens Plásticas Background"
+        className="banner-bg-image"
+      />
+    </div>
+    
+    {/* Centered Logo */}
+    <motion.div
+      className="logo-container"
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
+      <img
+        src={LOGO_URL}
+        alt="PlastiLu Embalagens"
+        className="logo-image"
+        data-testid="company-logo"
       />
     </motion.div>
 
-    {/* Premium Title with Luxury Style */}
+    {/* Premium Title with Thunder Font */}
     <motion.div
       className="premium-title-wrapper"
       initial={{ opacity: 0, y: 20 }}
@@ -107,9 +106,8 @@ const HeroSection = () => (
       transition={{ duration: 0.8, delay: 0.5 }}
     >
       <AnimatedTitleLines />
-      <h1 className="luxury-title" data-testid="main-title">
-        <span className="luxury-text-gradient">Embalagens plásticas</span>
-        <span className="luxury-text-white"> em geral, lisas e impressas.</span>
+      <h1 className="thunder-title" data-testid="main-title">
+        Embalagens plásticas em geral, lisas e impressas.
       </h1>
     </motion.div>
   </section>
@@ -191,7 +189,7 @@ const ButtonsSection = () => (
   </motion.section>
 );
 
-// Differential Section with Luxury Title
+// Differential Section with Thunder Title
 const DifferentialSection = () => (
   <motion.section
     className="py-8 px-4"
@@ -205,14 +203,13 @@ const DifferentialSection = () => (
     
     <div className="text-center space-y-4 max-w-md mx-auto">
       <motion.h2
-        className="luxury-title-secondary"
+        className="thunder-title-secondary"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.2 }}
         data-testid="differential-title"
       >
-        <span className="luxury-text-gradient">De Goiânia</span>
-        <span className="luxury-text-white"> para todas as regiões do Brasil.</span>
+        De Goiânia para todas as regiões do Brasil.
       </motion.h2>
       
       <motion.div
