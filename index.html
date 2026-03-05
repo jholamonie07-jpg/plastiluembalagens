@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlastiLu Ind. Embalagens</title>
+  <meta name="description" content="PlastiLu - Embalagens plásticas em geral, lisas e impressas. Sacos e Filmes em PP e PE, Stretch, Shrink, Bobinas.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #000000;
+      color: #F8FAFC;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #020617;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #0EA5E9;
+      border-radius: 3px;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      min-height: 100vh;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 50vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(14, 165, 233, 0.25) 0%, rgba(2, 132, 199, 0.15) 30%, transparent 70%),
+        radial-gradient(ellipse 100% 80% at 50% -20%, rgba(56, 189, 248, 0.2) 0%, transparent 50%),
+        linear-gradient(180deg, #020617 0%, #000000 100%);
+      z-index: 0;
+    }
+
+    .banner-bg {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+    }
+
+    .banner-bg img {
+      width: 100%;
+      max-width: 350px;
+      opacity: 0.12;
+      filter: blur(1px) brightness(0.9);
+      animation: float 8s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-10px) scale(1.02); }
+    }
+
+    .logo-container {
+      position: relative;
+      z-index: 10;
+      margin-bottom: 1.5rem;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .logo {
+      width: 140px;
+      height: 140px;
+      object-fit: contain;
+      border-radius: 50%;
+      filter: drop-shadow(0 0 20px rgba(14, 165, 233, 0.3));
+      transition: filter 0.3s ease;
+    }
+
+    .logo:hover {
+      filter: drop-shadow(0 0 30px rgba(14, 165, 233, 0.5));
+    }
+
+    .title-wrapper {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 0.5rem 0;
+      animation: fadeInUp 0.8s ease-out 0.3s both;
+    }
+
+    .title-line {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 350px;
+      height: 2px;
+      overflow: hidden;
+    }
+
+    .title-line::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(14, 165, 233, 0.4) 20%, 
+        rgba(56, 189, 248, 0.8) 50%, 
+        rgba(14, 165, 233, 0.4) 80%, 
+        transparent 100%
+      );
+    }
+
+    .title-line-top {
+      top: -8px;
+    }
+
+    .title-line-top::before {
+      animation: shimmer 3s ease-in-out infinite;
+    }
+
+    .title-line-bottom {
+      bottom: -8px;
+    }
+
+    .title-line-bottom::before {
+      animation: shimmer-reverse 3s ease-in-out infinite;
+      animation-delay: 1.5s;
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    @keyframes shimmer-reverse {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .thunder-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.75rem 1rem;
+      background: linear-gradient(
+        135deg, 
+        #FFFFFF 0%, 
+        #E0F2FE 25%, 
+        #7DD3FC 50%, 
+        #E0F2FE 75%, 
+        #FFFFFF 100%
+      );
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: subtle-shine 4s ease-in-out infinite;
+    }
+
+    .thunder-title-secondary {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: linear-gradient(
+        135deg, 
+        #FFFFFF 0%, 
+        #E0F2FE 25%, 
+        #7DD3FC 50%, 
+        #E0F2FE 75%, 
+        #FFFFFF 100%
+      );
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: subtle-shine 4s ease-in-out infinite;
+    }
+
+    @keyframes subtle-shine {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .institutional {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      animation: fadeInUp 0.6s ease-out 0.6s both;
+    }
+
+    .institutional p {
+      color: #94A3B8;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+    }
+
+    .buttons-section {
+      padding: 0 1rem 2rem;
+    }
+
+    .buttons-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .premium-btn {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #0c1929 0%, #071018 100%);
+      border: 1px solid rgba(14, 165, 233, 0.2);
+      color: #F8FAFC;
+      font-weight: 500;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      overflow: hidden;
+      animation: fadeInUp 0.5s ease-out both;
+    }
+
+    .premium-btn:nth-child(1) { animation-delay: 0.1s; }
+    .premium-btn:nth-child(2) { animation-delay: 0.2s; }
+    .premium-btn:nth-child(3) { animation-delay: 0.3s; }
+    .premium-btn:nth-child(4) { animation-delay: 0.4s; }
+    .premium-btn:nth-child(5) { animation-delay: 0.5s; }
+    .premium-btn:nth-child(6) { animation-delay: 0.6s; }
+
+    .premium-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.1), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.5s ease;
+    }
+
+    .premium-btn:hover {
+      border-color: rgba(14, 165, 233, 0.5);
+      box-shadow: 0 0 25px rgba(14, 165, 233, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .premium-btn:hover::before {
+      transform: translateX(100%);
+    }
+
+    .premium-btn:active {
+      transform: translateY(0);
+    }
+
+    .btn-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #0EA5E9, #0284C7);
+      box-shadow: 0 0 15px rgba(14, 165, 233, 0.4);
+      flex-shrink: 0;
+      color: white;
+      font-size: 1.1rem;
+    }
+
+    .btn-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .btn-title {
+      color: #F1F5F9;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .btn-subtitle {
+      color: #64748B;
+      font-size: 0.75rem;
+    }
+
+    .differential {
+      padding: 2rem 1rem;
+      animation: fadeInUp 0.6s ease-out 0.8s both;
+    }
+
+    .glow-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(14, 165, 233, 0.3) 20%, 
+        rgba(14, 165, 233, 0.5) 50%, 
+        rgba(14, 165, 233, 0.3) 80%, 
+        transparent 100%
+      );
+      margin: 1.5rem 0;
+    }
+
+    .differential-content {
+      text-align: center;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem 1.25rem;
+      margin-top: 1rem;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: #94A3B8;
+    }
+
+    .feature-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #0EA5E9;
+      box-shadow: 0 0 8px rgba(14, 165, 233, 0.6);
+    }
+
+    .footer {
+      padding: 2rem 1rem;
+      text-align: center;
+      animation: fadeInUp 0.6s ease-out 1s both;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(14, 165, 233, 0.1);
+      border: 1px solid rgba(14, 165, 233, 0.2);
+      color: #0EA5E9;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      margin-bottom: 1rem;
+    }
+
+    .social-link:hover {
+      background: rgba(14, 165, 233, 0.2);
+      border-color: rgba(14, 165, 233, 0.4);
+      box-shadow: 0 0 15px rgba(14, 165, 233, 0.3);
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      color: #475569;
+      font-size: 0.75rem;
+    }
+
+    .copyright span {
+      display: block;
+      margin-top: 0.25rem;
+      color: #334155;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        min-height: 45vh;
+        padding: 2rem 1rem;
+      }
+
+      .logo {
+        width: 120px;
+        height: 120px;
+      }
+
+      .thunder-title {
+        font-size: 1.2rem;
+      }
+
+      .thunder-title-secondary {
+        font-size: 1rem;
+      }
+
+      .premium-btn {
+        padding: 0.875rem 1.25rem;
+      }
+
+      .btn-icon {
+        width: 38px;
+        height: 38px;
+      }
+
+      .banner-bg img {
+        max-width: 280px;
+        opacity: 0.1;
+      }
+    }
+
+    @media (min-width: 640px) {
+      .logo {
+        width: 160px;
+        height: 160px;
+      }
+
+      .thunder-title {
+        font-size: 1.6rem;
+      }
+
+      .thunder-title-secondary {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <section class="hero">
+      <div class="hero-bg"></div>
+      
+      <div class="banner-bg">
+        <img src="https://customer-assets.emergentagent.com/job_plastilu-oficial/artifacts/31snfrpo_01-1-1536x1024-removebg-preview.png" alt="Embalagens">
+      </div>
+      
+      <div class="logo-container">
+        <img src="https://customer-assets.emergentagent.com/job_f2174556-e75a-4d9f-b9a1-79033e0c94cb/artifacts/j5w85uic_logo_plastiti-removebg-preview.png" alt="PlastiLu Embalagens" class="logo">
+      </div>
+      
+      <div class="title-wrapper">
+        <div class="title-line title-line-top"></div>
+        <h1 class="thunder-title">Embalagens plásticas em geral, lisas e impressas.</h1>
+        <div class="title-line title-line-bottom"></div>
+      </div>
+    </section>
+    
+    <section class="institutional">
+      <p>Sacos e Filmes em PP e PE • Stretch • Shrink • Bobinas</p>
+    </section>
+    
+    <section class="buttons-section">
+      <div class="buttons-container">
+        
+        <a href="https://api.whatsapp.com/send/?phone=62985230431&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="premium-btn">
+          <div class="btn-icon">
+            <i class="fab fa-whatsapp"></i>
+          </div>
+          <div class="btn-text">
+            <span class="btn-title">Fale com a gente</span>
+            <span class="btn-subtitle">WhatsApp</span>
+          </div>
+        </a>
+        
+        <a href="https://www.google.com/maps?q=Plastilu+Embalagens+-+Sacos+Pl%C3%A1sticos+e+Embalagens+Pl%C3%A1sticas+-+R.+dos+Mios%C3%B3tis,+183+-+Qd+11+-+Lt+05+-+Parque+Oeste+Industrial,+Goi%C3%A2nia+-+GO,+74375-650" target="_blank" rel="noopener noreferrer" class="premium-btn">
+          <div class="btn-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="btn-text">
+            <span class="btn-title">Como chegar</span>
+            <span class="btn-subtitle">Localização</span>
+          </div>
+        </a>
+        
+        <a href="https://drive.google.com/file/d/1XyWsjmus6cGWMpr7TkSG3eWVLFWJHZtH/view" target="_blank" rel="noopener noreferrer" class="premium-btn">
+          <div class="btn-icon">
+            <i class="fas fa-book-open"></i>
+          </div>
+          <div class="btn-text">
+            <span class="btn-title">Catálogo</span>
+            <span class="btn-subtitle">Nossos produtos</span>
+          </div>
+        </a>
+        
+        <a href="https://plastiluembalagens.com.br/" target="_blank" rel="noopener noreferrer" class="premium-btn">
+          <div class="btn-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <div class="btn-text">
+            <span class="btn-title">Site</span>
+            <span class="btn-subtitle">plastiluembalagens.com.br</span>
+          </div>
+        </a>
+        
+        <a href="https://api.whatsapp.com/send/?phone=5562985230431&text=Olá! Gostaria de saber mais sobre ser um representante.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="premium-btn">
+          <div class="btn-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <div class="btn-text">
+            <span class="btn-title">Seja um Representante</span>
+            <span class="btn-subtitle">Faça parte do nosso time</span>
+          </div>
+        </a>
+        
+        <a href="https://share.google/TB18y0Fcyw20PATzI" target="_blank" rel="noopener noreferrer" class="premium-btn">
+          <div class="btn-icon">
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="btn-text">
+            <span class="btn-title">Avalie-nos no Google</span>
+            <span class="btn-subtitle">Sua opinião importa</span>
+          </div>
+        </a>
+        
+      </div>
+    </section>
+    
+    <section class="differential">
+      <div class="glow-divider"></div>
+      <div class="differential-content">
+        <h2 class="thunder-title-secondary">De Goiânia para todas as regiões do Brasil.</h2>
+        <div class="features">
+          <div class="feature-item">
+            <div class="feature-dot"></div>
+            <span>Qualidade</span>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot"></div>
+            <span>Agilidade</span>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot"></div>
+            <span>Impressão personalizada</span>
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot"></div>
+            <span>Entrega eficiente</span>
+          </div>
+        </div>
+      </div>
+      <div class="glow-divider"></div>
+    </section>
+    
+    <footer class="footer">
+      <a href="https://www.instagram.com/plastilu.embalagens?igsh=MXdreGI0eGR0bHN1" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <p class="copyright">
+        © 2026 PlastiLu Ind. Embalagens
+        <span>Goiânia - GO</span>
+      </p>
+    </footer>
+    
+  </div>
+</body>
+</html>
